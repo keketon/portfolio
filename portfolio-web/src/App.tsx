@@ -1,13 +1,23 @@
-import { useState } from 'react';
-import { Button } from './components/ui/button';
+import BackgroundProvider from './components/layout/BackgroundProvider';
+import { AppSidebar } from './components/layout/MySideBar';
+import { SidebarProvider, SidebarTrigger } from './components/ui/sidebar';
+import { AppContextProvider } from './context/AppContext';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Button onClick={() => setCount(count => count + 1)}>count is {count}</Button>
-    </>
+    <AppContextProvider>
+      <SidebarProvider>
+        <BackgroundProvider>
+          <AppSidebar />
+          <main>
+            <SidebarTrigger />
+            <div className="py-2 px-4">
+              <h1 className="text-3xl font-bold text-white mb-6">Welcome to keketon's Portfolio</h1>
+            </div>
+          </main>
+        </BackgroundProvider>
+      </SidebarProvider>
+    </AppContextProvider>
   );
 }
 
