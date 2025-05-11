@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import RoutingErrorPage from './pages/RoutingErrorPage';
+import PfGame from './pages/PfGame';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: '/about',
     element: <About />,
+  },
+  {
+    path: '/pf-game',
+    element: <PfGame />,
   },
 ]);
 

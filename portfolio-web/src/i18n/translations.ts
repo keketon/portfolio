@@ -163,6 +163,52 @@ const translations: Record<TranslationLanguage, TranslatedMessage[]> = {
       translation: 'フロントエンド、バックエンド、2つのDynamoDBテーブルを利用',
     },
     { message: 'Led 2 SWEs', context: 'About Me', translation: '2人のSWEをリード' },
+
+    // PfGame
+    {
+      message: 'Prime Factorization Game',
+      translation: '素因数分解ゲーム',
+    },
+    {
+      message: 'Start',
+      context: 'prGame',
+      translation: 'はじめる',
+    },
+    {
+      message: 'Click factorial number to divide the number until 1!',
+      context: 'pfGame',
+      translation: '素数因数をクリックして、1になるまで素数分解してください',
+    },
+    {
+      message: 'Your Current Score',
+      context: 'pfGame',
+      translation: 'スコア',
+    },
+    {
+      message: 'Current Number',
+      context: 'pfGame',
+      translation: '現在の数字',
+    },
+    {
+      message: 'Finish Game',
+      context: 'pfGame',
+      translation: 'ゲームをおわる',
+    },
+    {
+      message: 'Congratulations!',
+      context: 'pfGame',
+      translation: 'お疲れさまでした！',
+    },
+    {
+      message: 'Your Score is:',
+      context: 'pfGame',
+      translation: 'あなたのスコア：',
+    },
+    {
+      message: 'Restart',
+      context: 'pfGame',
+      translation: '再プレイ',
+    },
   ],
 };
 
