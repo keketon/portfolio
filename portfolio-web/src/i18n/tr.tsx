@@ -1,8 +1,9 @@
-import { useAppContext } from '@/context/useInternalContexts';
-import translations from './translations';
+import translations, { type SupportedLanguageType } from './translations';
+import useSearchParams from '@/hooks/useSearchParams';
 
 export const useTr = () => {
-  const { lang } = useAppContext();
+  const { searchParam } = useSearchParams();
+  const lang = (searchParam('hl') as SupportedLanguageType) ?? 'ja';
 
   /**
    * Return translated message whose context matches.

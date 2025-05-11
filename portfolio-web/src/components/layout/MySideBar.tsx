@@ -16,6 +16,7 @@ import kotoneIcon from '@/assets/kotone.jpg';
 import ghIcon from '@/assets/github-mark-c791e9551fe4/github-mark/github-mark-white.svg';
 import inIcon from '@/assets/in-logo/in-logo/LI-In-Bug.png';
 import { Separator } from '../ui/separator';
+import LanguageSwitch from '../LanguageSwitch';
 
 interface NavItem {
   title: string;
@@ -75,9 +76,12 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <Separator className="my-4 max-w-11/12 self-center bg-white/50" />
       <SidebarFooter>
-        <SidebarMenu>
+        <SidebarMenu className="flex flex-col items-center">
+          <SidebarMenuItem>
+            <LanguageSwitch />
+          </SidebarMenuItem>
+          <Separator className="my-4 max-w-11/12 self-center bg-white/50" />
           <SidebarMenuItem className="flex justify-center space-x-4">
             <a href="https://github.com/keketon" target="_blank" rel="noopener noreferrer">
               <img src={ghIcon} alt="GitHub" className="h-10" />
