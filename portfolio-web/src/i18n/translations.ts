@@ -11,6 +11,11 @@ type TranslatedMessage = {
 const translations: Record<TranslationLanguage, TranslatedMessage[]> = {
   ja: [
     {
+      message: 'Welcome to my Portfolio',
+      context: 'Home',
+      translation: 'ポートフォリオへようこそ',
+    },
+    {
       message: 'Full-Stack Developer',
       context: 'LeftPane',
       translation: 'フルスタックエンジニア',

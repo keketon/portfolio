@@ -14,7 +14,7 @@ const LanguageSwitch: React.FC = () => {
   return (
     <Select
       onValueChange={value => {
-        console.log('Selected language:', value);
+        document.getElementsByTagName('html')[0].lang = value;
         setSearchParams({ hl: value });
       }}
     >
@@ -22,11 +22,16 @@ const LanguageSwitch: React.FC = () => {
         <SelectValue placeholder={items[lang]} />
       </SelectTrigger>
       <SelectContent>
-        {Object.entries(items).map(([value, label]) => (
-          <SelectItem key={value} value={value}>
-            {label}
-          </SelectItem>
-        ))}
+        <SelectItem key={lang} value={lang}>
+          {items[lang]}
+        </SelectItem>
+        {Object.entries(items)
+          .filter(([value]) => value !== lang)
+          .map(([value, label]) => (
+            <SelectItem key={value} value={value}>
+              {label}
+            </SelectItem>
+          ))}
       </SelectContent>
     </Select>
   );

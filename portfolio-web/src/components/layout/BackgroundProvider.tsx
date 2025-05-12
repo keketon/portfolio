@@ -1,5 +1,5 @@
 import type React from 'react';
-import backgroundImage from '/bg_sea.jpg';
+import backgroundImage from '@/assets/bg_sea.jpg';
 
 const BackgroundProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
