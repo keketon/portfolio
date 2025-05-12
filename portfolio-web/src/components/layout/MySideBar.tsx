@@ -24,6 +24,7 @@ interface NavItem {
   icon: React.ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>>;
 }
 
+// Don't start with '/' in href: It ignores the base path (/portfolio as of May 2025)
 const navItems: NavItem[] = [
   {
     title: 'Home',
@@ -32,12 +33,12 @@ const navItems: NavItem[] = [
   },
   {
     title: 'About Me',
-    href: '/about',
+    href: 'about',
     icon: UserRound,
   },
   {
     title: 'Prime Factorization Game',
-    href: '/pf-game',
+    href: 'pf-game',
     icon: SquareDivide,
   },
 ];
