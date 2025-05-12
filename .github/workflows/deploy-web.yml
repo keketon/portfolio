@@ -22,21 +22,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: "npm"
+          # Working around for GHA in sub-directories https://github.com/actions/setup-node/issues/706#issuecomment-1557983832
+          cache-dependency-path: "portfolio-web"
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./portfolio-web
+      - name: Build
+        run: npm run build
+        working-directory: ./portfolio-web
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build with Vite
-        run: |
-          npm ci
-          npm run build
-        working-directory: ./portfolio-web
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./portfolio-web/dist
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
