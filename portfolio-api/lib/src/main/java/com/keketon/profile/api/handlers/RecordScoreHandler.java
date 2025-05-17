@@ -9,9 +9,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.keketon.profile.api.dto.RecordScoreRequest;
 import com.keketon.profile.api.repository.DdbRepository;
 import com.keketon.profile.api.repository.Score;
+import java.util.Map;
 
 public class RecordScoreHandler
     implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+  private static final Map<String, String> COMMON_HEADERS =
+      Map.of(
+          "Content-Type", "application/json",
+          "Access-Control-Allow-Headers", "Content-Type",
+          "Access-Control-Allow-Origin", "https://keketon.github.io,http://localhost:5173",
+          "Access-Control-Allow-Methods", "OPTIONS,POST,GET");
   private static final ObjectMapper mapper = new ObjectMapper();
   private static final DdbRepository ddbRepository = new DdbRepository();
 
@@ -25,6 +32,7 @@ public class RecordScoreHandler
       final APIGatewayProxyResponseEvent res = new APIGatewayProxyResponseEvent();
       res.setStatusCode(400);
       res.setBody("{\"message\":\"Invalid request body: " + e.getMessage() + "\"}");
+      res.setHeaders(COMMON_HEADERS);
 
       return res;
     }
@@ -36,6 +44,7 @@ public class RecordScoreHandler
     final APIGatewayProxyResponseEvent res = new APIGatewayProxyResponseEvent();
     res.setStatusCode(200);
     res.setBody("{\"rank\":" + rank + "}");
+    res.setHeaders(COMMON_HEADERS);
 
     return res;
   }

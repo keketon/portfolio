@@ -13,14 +13,14 @@ export class ApiGateway extends Construct {
       apiName: 'PortfolioApi',
       description: 'API for Portfolio',
       corsPreflight: {
-        allowHeaders: ['X-API-KEY'],
+        allowHeaders: ['Content-Type', 'X-API-KEY'],
         allowMethods: [
           apigwv2.CorsHttpMethod.GET,
           apigwv2.CorsHttpMethod.HEAD,
           apigwv2.CorsHttpMethod.OPTIONS,
           apigwv2.CorsHttpMethod.POST,
         ],
-        allowOrigins: [CONST.webUrl],
+        allowOrigins: [CONST.webUrl, 'http://localhost:5173'],
         maxAge: Duration.days(10),
       },
       createDefaultStage: true,
@@ -30,6 +30,12 @@ export class ApiGateway extends Construct {
       path: '/score',
       methods: [apigwv2.HttpMethod.POST],
       integration: new HttpLambdaIntegration('RecordScoreIntegration', lambdaFunctions.recordScoreFunction),
+    });
+
+    api.addRoutes({
+      path: '/score',
+      methods: [apigwv2.HttpMethod.OPTIONS],
+      integration: new HttpLambdaIntegration('CORSRecordScore', lambdaFunctions.corsFunction),
     });
   }
 }
