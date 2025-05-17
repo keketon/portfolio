@@ -19,11 +19,15 @@ dependencies {
     implementation platform("software.amazon.awssdk:bom:2.27.21")
     implementation 'com.amazonaws:aws-lambda-java-core:1.2.3'
     implementation 'com.amazonaws:aws-lambda-java-events:3.15.0'
+    implementation 'software.amazon.awssdk:dynamodb-enhanced'
     runtimeOnly 'com.amazonaws:aws-lambda-java-log4j2:1.6.0'
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.38'
 	annotationProcessor 'org.projectlombok:lombok:1.18.38'
+
+    // jackson
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.0'
 	
 	testCompileOnly 'org.projectlombok:lombok:1.18.38'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
