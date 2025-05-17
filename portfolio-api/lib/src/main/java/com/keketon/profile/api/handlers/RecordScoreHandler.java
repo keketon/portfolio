@@ -14,7 +14,7 @@ public class RecordScoreHandler implements RequestHandler<RecordScoreRequest, Re
   @Override
   public RecordScoreResponse handleRequest(
       final RecordScoreRequest request, final Context context) {
-    context.getLogger().log("Requested score is: " + request.score());
-    return new RecordScoreResponse(1);
+    context.getLogger().log("Requested by " + request.userId() + ", score is: " + request.score());
+    return new RecordScoreResponse(request.userId(), 1);
   }
 }

@@ -1,3 +1,3 @@
 package com.keketon.profile.api.dto;
 
-public record RecordScoreResponse(int rank) {}
+public record RecordScoreResponse(String userId, int rank) {}
