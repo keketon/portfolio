@@ -11,7 +11,7 @@ const TextLink: React.FC<{
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn('text-blue-300 hover:text-blue-500 font-bold underline', className)}
+      className={cn('text-blue-400 hover:text-blue-500 font-bold underline', className)}
     >
       {children}
     </a>

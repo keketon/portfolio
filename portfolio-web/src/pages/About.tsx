@@ -106,11 +106,17 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div
+      className="flex flex-col items-center justify-center"
+      style={{
+        scrollbarColor: '#dddddd #000000',
+        scrollPaddingBottom: 2,
+      }}
+    >
       <h2 className="text-4xl font-bold mb-4">{tr('About Me')}</h2>
       <p className="text-center">{tr("Let me introduce myself in an inorganic way as I'm a software engineer :)")}</p>
 
-      <Table className="mt-6">
+      <Table className="mt-6 bg-gray-600/50">
         <TableCaption>{tr('Thank you for reading my history.')}</TableCaption>
         <TableHeader>
           <TableRow>
