@@ -1,6 +1,8 @@
+import { recordResult } from '@/api/rankApi';
 import { Button } from '@/components/ui/button';
 import { useTr } from '@/i18n/tr';
 import { baseNumbers, generateRound, type Round } from '@/lib/pfGame';
+import { getOrRegisterUserId } from '@/lib/utils';
 import React from 'react';
 
 /**
@@ -11,6 +13,7 @@ type GameState = 'initial' | 'playing' | 'finished';
 const PfGame: React.FC = () => {
   const [gameState, setGameState] = React.useState<GameState>('initial');
   const [score, setScore] = React.useState<number>(0);
+  const [rank, setRank] = React.useState<number | null>(null);
 
   const onClickPlay = () => {
     setGameState('playing');
@@ -21,7 +24,9 @@ const PfGame: React.FC = () => {
     setScore(prev => prev + 1);
   };
 
-  const onFinish = () => {
+  const onFinish = async () => {
+    const userId = getOrRegisterUserId();
+    await recordResult(userId, score).then(setRank);
     setGameState('finished');
   };
 
@@ -44,7 +49,7 @@ const PfGame: React.FC = () => {
           />
         );
       case 'finished':
-        return <Finished score={score} onReturn={onReturn} />;
+        return <Finished score={score} rank={rank} onReturn={onReturn} />;
     }
   };
 
@@ -136,7 +141,11 @@ const Playing: React.FC<{
   );
 };
 
-const Finished: React.FC<{ score: number; onReturn: () => void }> = ({ score, onReturn }) => {
+const Finished: React.FC<{ score: number; rank: number | null; onReturn: () => void }> = ({
+  score,
+  rank,
+  onReturn,
+}) => {
   const { tr } = useTr();
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
@@ -144,6 +153,11 @@ const Finished: React.FC<{ score: number; onReturn: () => void }> = ({ score, on
       <h1 className="text-4xl font-bold pt-2">
         {tr('Your Score is:', 'pfGame')} {score}
       </h1>
+      {rank && (
+        <h2 className="text-2xl font-bold pt-2">
+          {tr('Your Rank is:', 'pfGame')} {rank}
+        </h2>
+      )}
       <Button className="mt-8 px-4 py-2 rounded bg-green-500 hover:bg-green-600 hover:text-white" onClick={onReturn}>
         {tr('Restart', 'pfGame')}
       </Button>
