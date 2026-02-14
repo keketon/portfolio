@@ -24,11 +24,11 @@ interface NavItem {
   icon: React.ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>>;
 }
 
-// Don't start with '/' in href: It ignores the base path (/portfolio as of May 2025)
+// Don't start with '/' in href except for home page: It ignores the base path (/portfolio as of May 2025)
 const navItems: NavItem[] = [
   {
     title: 'Home',
-    href: '/',
+    href: '/portfolio/',
     icon: Home,
   },
   {
@@ -49,7 +49,7 @@ export function AppSidebar() {
       <SidebarHeader className="pt-8">
         <SidebarMenu>
           <SidebarMenuItem className="flex flex-col items-center">
-            <a href="/" className="flex w-32 h-32">
+            <a href="/portfolio/" className="flex w-32 h-32">
               <Avatar className="rounded-full overflow-hidden">
                 <AvatarImage src={kotoneIcon} alt="Profile Picture" />
                 <AvatarFallback delayMs={300}>K.Y.</AvatarFallback>

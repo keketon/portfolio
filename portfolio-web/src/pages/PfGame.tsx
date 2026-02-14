@@ -1,8 +1,11 @@
 import { recordResult } from '@/api/rankApi';
+import CustomButton from '@/components/CustomButton';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { useTr } from '@/i18n/tr';
 import { baseNumbers, generateRound, type Round } from '@/lib/pfGame';
 import { getOrRegisterUserId } from '@/lib/utils';
+import { useToast } from '@/context/useToast';
 import React from 'react';
 
 /**
@@ -11,28 +14,54 @@ import React from 'react';
 type GameState = 'initial' | 'playing' | 'finished';
 
 const PfGame: React.FC = () => {
+  const { tr } = useTr();
+  const { addToast } = useToast();
+
   const [gameState, setGameState] = React.useState<GameState>('initial');
   const [score, setScore] = React.useState<number>(0);
   const [rank, setRank] = React.useState<number | null>(null);
+  const [isFinishModalOpen, setIsFinishModalOpen] = React.useState(false);
+
+  const initializeGame = () => {
+    setScore(0);
+    setRank(null);
+  };
 
   const onClickPlay = () => {
     setGameState('playing');
-    setScore(0);
+    initializeGame();
   };
 
   const onCorrectAnswer = () => {
     setScore(prev => prev + 1);
   };
 
-  const onFinish = async () => {
-    const userId = getOrRegisterUserId();
-    await recordResult(userId, score).then(setRank);
+  const onCloseFinishModal = () => {
+    setIsFinishModalOpen(false);
     setGameState('finished');
+  };
+
+  const onSaveScore = async () => {
+    try {
+      const userId = getOrRegisterUserId();
+      const rank = await recordResult(userId, score);
+      setRank(rank);
+      onCloseFinishModal();
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to save score';
+      console.error('Failed to save score', errorMessage);
+      addToast({
+        id: 'saveScoreError',
+        title: tr('Error', 'pfGame'),
+        description: tr('Error happened during saving your score.', 'pfGame'),
+        type: 'error',
+      });
+    }
   };
 
   const onReturn = () => {
     setGameState('initial');
-    setScore(0);
+    initializeGame();
   };
 
   const getContent = () => {
@@ -44,8 +73,8 @@ const PfGame: React.FC = () => {
           <Playing
             currentScore={score}
             onCorrectAnswer={onCorrectAnswer}
-            onWrongAnswer={onFinish}
-            onClickFinish={onFinish}
+            onWrongAnswer={() => setIsFinishModalOpen(true)}
+            onClickFinish={() => setIsFinishModalOpen(true)}
           />
         );
       case 'finished':
@@ -56,7 +85,19 @@ const PfGame: React.FC = () => {
   return (
     <div className="flex flex-col h-full w-full items-center justify-center pb-10">
       <div className="flex flex-col items-center justify-center w-full md:w-2/3 h-full md:h-7/12 bg-gradient-to-r from-gray-700 to-gray-950">
-        {getContent()}
+        <Dialog open={isFinishModalOpen} onOpenChange={onCloseFinishModal}>
+          <DialogContent onInteractOutside={e => e.preventDefault()} className="duration-700 ease-out">
+            <DialogTitle>{tr('GAME OVER!', 'pfGame')}</DialogTitle>
+            <DialogDescription>{tr('Do you want to record your score to the server?', 'pfGame')}</DialogDescription>
+            <div className="flex flex-row justify-center gap-4 mt-4">
+              <CustomButton onClick={onSaveScore}>{tr('Save Score', 'pfGame')}</CustomButton>
+              <CustomButton variant="wrong" onClick={onCloseFinishModal}>
+                {tr('No', 'pfGame')}
+              </CustomButton>
+            </div>
+          </DialogContent>
+          {getContent()}
+        </Dialog>
       </div>
     </div>
   );
@@ -67,9 +108,7 @@ const Initial: React.FC<{ onClickPlay: () => void }> = ({ onClickPlay }) => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
       <h1 className="text-4xl font-bold pb-8">{tr('Prime Factorization Game')}</h1>
-      <Button className="px-4 py-2 rounded bg-green-500 hover:bg-green-600 hover:text-white" onClick={onClickPlay}>
-        {tr('Start', 'prGame')}
-      </Button>
+      <CustomButton onClick={onClickPlay}>{tr('Start', 'prGame')}</CustomButton>
     </div>
   );
 };
@@ -115,27 +154,24 @@ const Playing: React.FC<{
             return (
               <>
                 {index > 0 && <span className="text-4xl font-mono">×</span>}
-                <Button
+                <CustomButton
                   key={base}
-                  className="size-16 m-2 px-4 py-2 text-4xl font-mono rounded hover:bg-amber-700 hover:text-white shadow-lg/20 shadow-gray-100"
+                  variant="plain"
+                  className="size-16 m-2 text-4xl font-mono bg-blue-300 hover:bg-amber-700 hover:text-white shadow-lg/20 shadow-gray-100"
                   onClick={() => handleNumberClick(base)}
                 >
                   <var>
                     {base}
                     <sup>{round.currentGuess[base] ?? 0}</sup>
                   </var>
-                </Button>
+                </CustomButton>
               </>
             );
           })}
         </div>
-        {/* TODO: Add Progress Bar*/}
-        <Button
-          className="mt-8 px-4 py-2 rounded bg-green-500 hover:bg-green-600 hover:text-white"
-          onClick={onClickFinish}
-        >
+        <CustomButton className="mt-8" onClick={onClickFinish}>
           {tr('Finish Game', 'pfGame')}
-        </Button>
+        </CustomButton>
       </div>
     </div>
   );
