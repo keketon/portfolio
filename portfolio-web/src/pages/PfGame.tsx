@@ -86,7 +86,7 @@ const PfGame: React.FC = () => {
     <div className="flex flex-col h-full w-full items-center justify-center pb-10">
       <div className="flex flex-col items-center justify-center w-full md:w-2/3 h-full md:h-7/12 bg-gradient-to-r from-gray-700 to-gray-950">
         <Dialog open={isFinishModalOpen} onOpenChange={onCloseFinishModal}>
-          <DialogContent>
+          <DialogContent onInteractOutside={e => e.preventDefault()}>
             <DialogTitle>{tr('GAME OVER!', 'pfGame')}</DialogTitle>
             <DialogDescription>{tr('Do you want to record your score to the server?', 'pfGame')}</DialogDescription>
             <div className="flex flex-row justify-center gap-4 mt-4">
