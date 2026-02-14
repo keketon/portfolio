@@ -214,6 +214,15 @@ const translations: Record<TranslationLanguage, TranslatedMessage[]> = {
       context: 'pfGame',
       translation: '再プレイ',
     },
+    { message: 'Your Rank is:', context: 'pfGame', translation: 'あなたの順位：' },
+    { message: 'GAME OVER!', context: 'pfGame', translation: 'ゲームオーバー！' },
+    {
+      message: 'Do you want to record your score to the server?',
+      context: 'pfGame',
+      translation: 'スコアをサーバーに記録しますか？',
+    },
+    { message: 'Save Score', context: 'pfGame', translation: '保存する' },
+    { message: 'No', context: 'pfGame', translation: 'いいえ' },
   ],
 };
 
