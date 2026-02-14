@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/compone
 import { useTr } from '@/i18n/tr';
 import { baseNumbers, generateRound, type Round } from '@/lib/pfGame';
 import { getOrRegisterUserId } from '@/lib/utils';
+import { useToast } from '@/context/useToast';
 import React from 'react';
 
 /**
@@ -14,6 +15,7 @@ type GameState = 'initial' | 'playing' | 'finished';
 
 const PfGame: React.FC = () => {
   const { tr } = useTr();
+  const { addToast } = useToast();
 
   const [gameState, setGameState] = React.useState<GameState>('initial');
   const [score, setScore] = React.useState<number>(0);
@@ -40,9 +42,21 @@ const PfGame: React.FC = () => {
   };
 
   const onSaveScore = async () => {
-    const userId = getOrRegisterUserId();
-    await recordResult(userId, score).then(setRank);
-    onCloseFinishModal();
+    try {
+      const userId = getOrRegisterUserId();
+      const rank = await recordResult(userId, score);
+      setRank(rank);
+      onCloseFinishModal();
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to save score';
+      console.error('Failed to save score', errorMessage);
+      addToast({
+        id: 'saveScoreError',
+        title: tr('Error', 'pfGame'),
+        description: tr('Error happened during saving your score.', 'pfGame'),
+        type: 'error',
+      });
+    }
   };
 
   const onReturn = () => {

@@ -1,12 +1,12 @@
 import BackgroundProvider from './components/layout/BackgroundProvider';
 import { AppSidebar } from './components/layout/MySideBar';
 import { SidebarProvider, SidebarTrigger } from './components/ui/sidebar';
-import { AppContextProvider } from './context/AppContext';
+import { ToastProvider } from './context/ToastContext';
 import Router from './Router';
 
 function App() {
   return (
-    <AppContextProvider>
+    <ToastProvider>
       <SidebarProvider>
         <BackgroundProvider>
           <AppSidebar />
@@ -18,7 +18,7 @@ function App() {
           </main>
         </BackgroundProvider>
       </SidebarProvider>
-    </AppContextProvider>
+    </ToastProvider>
   );
 }
 
