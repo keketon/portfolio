@@ -11,7 +11,7 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
-import { Home, SquareDivide, UserRound, type LucideProps } from 'lucide-react';
+import { Home, SquareDivide, UserRound, Calculator, type LucideProps } from 'lucide-react';
 import kotoneIcon from '@/assets/kotone.jpg';
 import ghIcon from '@/assets/github-mark-c791e9551fe4/github-mark/github-mark-white.svg';
 import inIcon from '@/assets/in-logo/in-logo/LI-In-Bug.png';
@@ -41,6 +41,11 @@ const navItems: NavItem[] = [
     title: 'Prime Factorization Game',
     href: 'pf-game',
     icon: SquareDivide,
+  },
+  {
+    title: 'Gak Calculator',
+    href: 'gak-calculator',
+    icon: Calculator,
   },
 ];
 

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import RoutingErrorPage from './pages/RoutingErrorPage';
 import PfGame from './pages/PfGame';
+import GakCalculator from './pages/GakCalculator';
 
 const router = createBrowserRouter(
   [
@@ -19,6 +20,10 @@ const router = createBrowserRouter(
     {
       path: '/pf-game',
       element: <PfGame />,
+    },
+    {
+      path: '/gak-calculator',
+      element: <GakCalculator />,
     },
   ],
   { basename: '/portfolio' }
