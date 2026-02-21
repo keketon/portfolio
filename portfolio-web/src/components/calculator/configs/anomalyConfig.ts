@@ -6,16 +6,16 @@ export const anomalyConfig: TabConfig = {
   prefix: 'anomaly',
   parameters: [
     { key: 'parameta', label: 'Parameta' },
-    { key: 'allOffset', label: 'Intensity' },
-    { key: 'tsuyokiOffset', label: 'Tsuyoki Offset' },
-    { key: 'zenryokuOffset', label: 'Zenryoku Offset' },
+    { key: 'allReinforcement', label: 'All Reinforcement' },
+    { key: 'tsuyokiReinforcement', label: 'Tsuyoki Reinforcement' },
+    { key: 'zenryokuReinforcement', label: 'Zenryoku Reinforcement' },
+    { key: 'netsui', label: 'Netsui' },
     { key: 'totalMultiplier', label: 'Total Multiplier (%)' },
   ],
-  // TODO: Add type
-  calculate: (values: Record<string, number>) => {
-    const { parameta, allOffset, tsuyokiOffset, zenryokuOffset, totalMultiplier } = values;
-    const type = 'tsuyoki'; // TODO: Placeholder - in a real implementation, this would come from user input or config
-    const base = parameta + allOffset + (type === 'tsuyoki' ? tsuyokiOffset : zenryokuOffset);
+  calculate: (values: Record<string, number>, type: AnomalyType) => {
+    const { parameta, allReinforcement, tsuyokiReinforcement, zenryokuReinforcement, netsui, totalMultiplier } = values;
+    const base =
+      parameta + netsui + allReinforcement + (type === 'tsuyoki' ? tsuyokiReinforcement : zenryokuReinforcement);
     return base * (1 + totalMultiplier / 100);
   },
 };

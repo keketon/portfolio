@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react';
+import type { AnomalyType } from './configs/anomalyConfig';
 
 export interface Parameter {
   key: string;
   label: string;
 }
 
-export interface TabConfig {
-  prefix: string;
-  parameters: Parameter[];
-  calculate: (values: Record<string, number>) => number;
-}
+export type TabConfig =
+  | {
+      prefix: 'sense';
+      parameters: Parameter[];
+      calculate: (values: Record<string, number>) => number;
+    }
+  | {
+      prefix: 'anomaly';
+      parameters: Parameter[];
+      calculate: (values: Record<string, number>, type: AnomalyType) => number;
+    };
 
 export const useCalculator = (config: TabConfig) => {
   // Initialize state dynamically based on parameters
@@ -20,6 +27,7 @@ export const useCalculator = (config: TabConfig) => {
 
   const [values, setValues] = useState<Record<string, string>>(initialValues);
   const [score, setScore] = useState<number>(0);
+  const [anomalyType, setAnomalyType] = useState<AnomalyType>('tsuyoki');
 
   // Auto-calculate when any value changes
   useEffect(() => {
@@ -30,9 +38,10 @@ export const useCalculator = (config: TabConfig) => {
     });
 
     // Calculate score using the provided formula
-    const calculatedScore = config.calculate(numericValues);
+    const calculatedScore =
+      config.prefix === 'sense' ? config.calculate(numericValues) : config.calculate(numericValues, anomalyType);
     setScore(calculatedScore);
-  }, [values, config]);
+  }, [values, config, anomalyType]);
 
   // Generic change handler for any parameter
   const handleChange = (key: string, value: string) => {
@@ -50,6 +59,7 @@ export const useCalculator = (config: TabConfig) => {
     });
     setValues(resetValues);
     setScore(0);
+    setAnomalyType('tsuyoki');
   };
 
   return {
@@ -57,5 +67,7 @@ export const useCalculator = (config: TabConfig) => {
     score,
     handleChange,
     handleReset,
+    anomalyType,
+    setAnomalyType,
   };
 };
