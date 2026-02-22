@@ -4,9 +4,17 @@ const path = require('path');
 // Paths
 const SRC_DIR = path.resolve(__dirname, '../src');
 const I18N_DIR = path.resolve(__dirname, '../src/i18n');
+const LANGUAGES_CONFIG_PATH = path.join(I18N_DIR, 'languages.json');
 
-// Supported languages (excluding 'en' which is the base language)
-const TRANSLATION_LANGUAGES = ['ja'];
+// Load languages from configuration (excluding base language 'en')
+function loadTranslationLanguages() {
+  const config = JSON.parse(fs.readFileSync(LANGUAGES_CONFIG_PATH, 'utf-8'));
+  return config.languages
+    .filter(lang => !lang.isBase)
+    .map(lang => lang.code);
+}
+
+const TRANSLATION_LANGUAGES = loadTranslationLanguages();
 
 // Helper to recursively get all .ts/.tsx files
 function getAllSourceFiles(dir) {

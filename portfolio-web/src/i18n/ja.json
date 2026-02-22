@@ -276,5 +276,51 @@
     "message": "No",
     "context": "pfGame",
     "translation": "いいえ"
+  },
+  {
+    "message": "JEOL",
+    "translation": "JEOL"
+  },
+  {
+    "message": "TeamLab",
+    "translation": "TeamLab"
+  },
+  {
+    "message": "Indeed",
+    "translation": "Indeed"
+  },
+  {
+    "message": "Year/Month",
+    "translation": "年月"
+  },
+  {
+    "message": "Role",
+    "translation": "役割"
+  },
+  {
+    "message": "Experience",
+    "translation": "経歴"
+  },
+  {
+    "message": "Education/Industry",
+    "translation": "学歴・業界"
+  },
+  {
+    "message": "Error",
+    "translation": "エラー",
+    "context": "pfGame"
+  },
+  {
+    "message": "Error happened during saving your score.",
+    "translation": "スコアの保存中にエラーが発生しました。",
+    "context": "pfGame"
+  },
+  {
+    "message": "The page you want doesn't exist",
+    "translation": "お探しのページは見つかりませんでした。"
+  },
+  {
+    "message": "Go back to home",
+    "translation": "ホームへ戻る"
   }
 ]

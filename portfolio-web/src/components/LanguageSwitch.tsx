@@ -1,15 +1,15 @@
 import React from 'react';
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { type SupportedLanguageType } from '@/i18n/tr';
 import useSearchParams from '@/hooks/useSearchParams';
+import { languages } from '@/i18n/tr';
 
-const items: Record<SupportedLanguageType, string> = { ja: '日本語', en: 'English' };
+const items: Record<string, string> = Object.fromEntries(languages.map(lang => [lang.code, lang.nativeName]));
 
 const LanguageSwitch: React.FC = () => {
   const { searchParam, setSearchParams } = useSearchParams();
   const hlParam = searchParam('hl');
-  const lang = !hlParam ? 'ja' : (hlParam as SupportedLanguageType);
+  const lang = !hlParam ? 'ja' : hlParam;
 
   return (
     <Select

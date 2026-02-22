@@ -17,6 +17,7 @@ import ghIcon from '@/assets/github-mark-c791e9551fe4/github-mark/github-mark-wh
 import inIcon from '@/assets/in-logo/in-logo/LI-In-Bug.png';
 import { Separator } from '../ui/separator';
 import LanguageSwitch from '../LanguageSwitch';
+import useSearchParams from '@/hooks/useSearchParams';
 
 interface NavItem {
   title: string;
@@ -44,12 +45,16 @@ const navItems: NavItem[] = [
 ];
 
 export function AppSidebar() {
+  const { searchParam } = useSearchParams();
+  const currentLang = searchParam('hl');
+  const langParam = currentLang ? `?hl=${currentLang}` : '';
+
   return (
     <Sidebar>
       <SidebarHeader className="pt-8">
         <SidebarMenu>
           <SidebarMenuItem className="flex flex-col items-center">
-            <a href="/portfolio/" className="flex w-32 h-32">
+            <a href={`/portfolio/${langParam}`} className="flex w-32 h-32">
               <Avatar className="rounded-full overflow-hidden">
                 <AvatarImage src={kotoneIcon} alt="Profile Picture" />
                 <AvatarFallback delayMs={300}>K.Y.</AvatarFallback>
@@ -66,7 +71,7 @@ export function AppSidebar() {
               {navItems.map(item => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.href}>
+                    <a href={`${item.href}${langParam}`}>
                       <item.icon className="text-white/80" />
                       <span className="text-white/80 hover:text-white-10">{item.title}</span>
                     </a>
