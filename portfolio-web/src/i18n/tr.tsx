@@ -1,4 +1,5 @@
 import ja from './ja.json';
+import zh from './zh.json';
 import languagesConfig from './languages.json';
 import useSearchParams from '@/hooks/useSearchParams';
 
@@ -22,6 +23,7 @@ export const languages: LanguageConfig[] = languagesConfig.languages;
 
 const translations: Record<string, TranslatedMessage[]> = {
   ja,
+  zh,
 };
 
 export default translations;
