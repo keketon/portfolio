@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { type SupportedLanguageType } from '@/i18n/translations';
+import { type SupportedLanguageType } from '@/i18n/tr';
 import useSearchParams from '@/hooks/useSearchParams';
 
 const items: Record<SupportedLanguageType, string> = { ja: '日本語', en: 'English' };
