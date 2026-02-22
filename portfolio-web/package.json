@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build && cp 404.html dist/404.html",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "extract-i18n": "node scripts/extract-i18n.cjs && npx prettier --write src/i18n/*.json"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.9",

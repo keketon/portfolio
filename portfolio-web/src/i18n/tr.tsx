@@ -1,5 +1,22 @@
-import translations, { type SupportedLanguageType } from './translations';
+import ja from './ja.json';
 import useSearchParams from '@/hooks/useSearchParams';
+
+export const SUPPORTED_LANGUAGES = ['en', 'ja'] as const;
+
+export type SupportedLanguageType = (typeof SUPPORTED_LANGUAGES)[number];
+export type TranslationLanguage = Exclude<SupportedLanguageType, 'en'>;
+
+export type TranslatedMessage = {
+  message: string;
+  context?: string;
+  translation: string;
+};
+
+const translations: Record<TranslationLanguage, TranslatedMessage[]> = {
+  ja,
+};
+
+export default translations;
 
 export const useTr = () => {
   const { searchParam } = useSearchParams();
