@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "extract-i18n": "node scripts/extract-i18n.cjs && npx prettier --write src/i18n/*.json"
+    "extract-i18n": "node scripts/extract-i18n.cjs && npx prettier --write src/i18n/*.json",
+    "ai-translate": "node scripts/translate-i18n.cjs && npx prettier --write src/i18n/*.json",
+    "ai-translate-dryrun": "node scripts/translate-i18n.cjs --dry-run && npx prettier --write src/i18n/*.json"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.9",
@@ -33,10 +35,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@google/generative-ai": "^0.24.1",
     "@types/node": "^22.15.17",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "dotenv": "^17.3.1",
     "eslint": "^9.25.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.0",

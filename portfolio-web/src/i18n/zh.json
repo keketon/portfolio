@@ -1,0 +1,320 @@
+[
+  {
+    "message": "Apr 2013",
+    "translation": "2013年4月"
+  },
+  {
+    "message": "Faculty of Liberal Arts/Applied Physics",
+    "translation": "教养学部 / 应用物理学"
+  },
+  {
+    "message": "Enter University",
+    "translation": "入学"
+  },
+  {
+    "message": "the University of Tokyo",
+    "translation": "东京大学"
+  },
+  {
+    "message": "Apr 2017",
+    "translation": "2017年4月"
+  },
+  {
+    "message": "Graduate School of Frontier Sciences",
+    "translation": "新领域创成科学研究科"
+  },
+  {
+    "message": "Enter Graduate School",
+    "translation": "考入研究生院"
+  },
+  {
+    "message": "Research on Surface Physics",
+    "translation": "表面物理学研究",
+    "context": "About Me"
+  },
+  {
+    "message": "One Paper as the First Author",
+    "translation": "以第一作者身份发表论文一篇",
+    "context": "About Me"
+  },
+  {
+    "message": "the University of Tokyo",
+    "translation": "东京大学"
+  },
+  {
+    "message": "Apr 2019",
+    "translation": "2019年4月"
+  },
+  {
+    "message": "R&D Researcher",
+    "translation": "研发研究员"
+  },
+  {
+    "message": "Development of Electron Probe Micro Analyzer",
+    "translation": "电子探针显微分析仪（EPMA）的开发",
+    "context": "About Me"
+  },
+  {
+    "message": "JEOL",
+    "translation": "日本电子 (JEOL)"
+  },
+  {
+    "message": "May 2020",
+    "translation": "2020年5月"
+  },
+  {
+    "message": "Software Engineer/Team Lead",
+    "translation": "软件工程师 / 团队负责人"
+  },
+  {
+    "message": "Development of New Stock Management System from scratch",
+    "translation": "从零开发全新的库存管理系统",
+    "context": "About Me"
+  },
+  {
+    "message": "that manages ~100,000 items per store",
+    "translation": "管理单店约 10 万件商品",
+    "context": "About Me"
+  },
+  {
+    "message": "Backend Services, Cloud Infrastructure, and Frontend Pages",
+    "translation": "后端服务、云基础架构及前端页面",
+    "context": "About Me"
+  },
+  {
+    "message": "Kotlin, SpringBoot, SQL, AWS CDK, Pug (HTML)",
+    "translation": "Kotlin, SpringBoot, SQL, AWS CDK, Pug (HTML)",
+    "context": "About Me"
+  },
+  {
+    "message": "Software Design of New Features",
+    "translation": "新功能的软件设计",
+    "context": "About Me"
+  },
+  {
+    "message": "Experiences Several Team Lead Roles",
+    "translation": "曾担任多个团队负责人角色",
+    "context": "About Me"
+  },
+  {
+    "message": "Tech Lead of a Small Team (3-5 SWEs)",
+    "translation": "小型团队技术负责人（3-5 名软件工程师）",
+    "context": "About Me"
+  },
+  {
+    "message": "Lead of Whole Project (2-3 teams and ~20 SWEs in total)",
+    "translation": "项目整体负责人（共 2-3 个团队，总计约 20 名软件工程师）",
+    "context": "About Me"
+  },
+  {
+    "message": "People Manager (4-5 direct reports)",
+    "translation": "人员经理（4-5 名直属下属）",
+    "context": "About Me"
+  },
+  {
+    "message": "TeamLab",
+    "translation": "teamLab"
+  },
+  {
+    "message": "May 2022",
+    "translation": "2022年5月"
+  },
+  {
+    "message": "Software Engineer",
+    "translation": "软件工程师"
+  },
+  {
+    "message": "Development of Employer Features",
+    "translation": "雇主端功能开发",
+    "context": "About Me"
+  },
+  {
+    "message": "Backend Services, Frontend Pages, Cloud Infrastructure, and Data Analysis",
+    "translation": "后端服务、前端页面、云基础架构及数据分析",
+    "context": "About Me"
+  },
+  {
+    "message": "Java, SpringBoot, Terraform, React, AWS SQS, DynamoDB",
+    "translation": "Java, SpringBoot, Terraform, React, AWS SQS, DynamoDB",
+    "context": "About Me"
+  },
+  {
+    "message": "Experiences:",
+    "translation": "经验：",
+    "context": "About Me"
+  },
+  {
+    "message": "Automated Messaging System",
+    "translation": "自动化消息系统",
+    "context": "About Me"
+  },
+  {
+    "message": "Implemented an automated messaging system spanning frontend, backend, and a scheduling platform (Temporal)",
+    "translation": "实现了一套涵盖前端、后端和调度平台（Temporal）的自动化消息系统",
+    "context": "About Me"
+  },
+  {
+    "message": "Led 1 SWE while mentoring him",
+    "translation": "在指导一名软件工程师的同时负责团队领导工作",
+    "context": "About Me"
+  },
+  {
+    "message": "Codebase Migration of High-volume Email Sending System",
+    "translation": "高并发邮件发送系统的代码库迁移",
+    "context": "About Me"
+  },
+  {
+    "message": "Migrated 10+ years old codebase to a new system which sends 1M+ emails per day",
+    "translation": "将拥有 10 多年历史的代码库迁移到每日发送超过 100 万封邮件的新系统中",
+    "context": "About Me"
+  },
+  {
+    "message": "Worked with another SWE together",
+    "translation": "与另一名软件工程师协同开发",
+    "context": "About Me"
+  },
+  {
+    "message": "Email Suppressing Feature",
+    "translation": "邮件发送抑制功能",
+    "context": "About Me"
+  },
+  {
+    "message": "Implemented a feature to reduce the employer's notifications to a reasonable amount in the above system",
+    "translation": "在上述系统中实现了一项功能，将雇主接收到的通知减少到合理数量",
+    "context": "About Me"
+  },
+  {
+    "message": "Spans frontend, backend, and 2 new DynamoDB tables",
+    "translation": "涉及前端、后端及 2 个新增的 DynamoDB 数据表",
+    "context": "About Me"
+  },
+  {
+    "message": "Led 2 SWEs",
+    "translation": "领导 2 名软件工程师",
+    "context": "About Me"
+  },
+  {
+    "message": "Indeed",
+    "translation": "Indeed"
+  },
+  {
+    "message": "About Me",
+    "translation": "关于我"
+  },
+  {
+    "message": "Let me introduce myself in an inorganic way as I'm a software engineer :)",
+    "translation": "既然我是软件工程师，请允许我用一种比较“理性”的方式来自我介绍 :)"
+  },
+  {
+    "message": "Thank you for reading my history.",
+    "translation": "感谢阅览我的个人经历。"
+  },
+  {
+    "message": "Year/Month",
+    "translation": "年/月"
+  },
+  {
+    "message": "Role",
+    "translation": "职位"
+  },
+  {
+    "message": "Experience",
+    "translation": "项目经验"
+  },
+  {
+    "message": "Education/Industry",
+    "translation": "教育 / 行业"
+  },
+  {
+    "message": "Welcome to my Portfolio",
+    "translation": "欢迎来到我的作品集",
+    "context": "Home"
+  },
+  {
+    "message": "Error",
+    "translation": "错误",
+    "context": "pfGame"
+  },
+  {
+    "message": "Error happened during saving your score.",
+    "translation": "保存分数时发生错误。",
+    "context": "pfGame"
+  },
+  {
+    "message": "GAME OVER!",
+    "translation": "游戏结束！",
+    "context": "pfGame"
+  },
+  {
+    "message": "Do you want to record your score to the server?",
+    "translation": "您想将分数记录到服务器吗？",
+    "context": "pfGame"
+  },
+  {
+    "message": "Save Score",
+    "translation": "保存分数",
+    "context": "pfGame"
+  },
+  {
+    "message": "No",
+    "translation": "否",
+    "context": "pfGame"
+  },
+  {
+    "message": "Prime Factorization Game",
+    "translation": "质因数分解游戏"
+  },
+  {
+    "message": "Start",
+    "translation": "开始",
+    "context": "prGame"
+  },
+  {
+    "message": "Click factorial number to divide the number until 1!",
+    "translation": "点击因数进行除法运算，直到结果为 1！",
+    "context": "pfGame"
+  },
+  {
+    "message": "Your Current Score",
+    "translation": "当前得分",
+    "context": "pfGame"
+  },
+  {
+    "message": "Current Number",
+    "translation": "当前数字",
+    "context": "pfGame"
+  },
+  {
+    "message": "Finish Game",
+    "translation": "结束游戏",
+    "context": "pfGame"
+  },
+  {
+    "message": "Congratulations!",
+    "translation": "恭喜！",
+    "context": "pfGame"
+  },
+  {
+    "message": "Your Score is:",
+    "translation": "您的得分是：",
+    "context": "pfGame"
+  },
+  {
+    "message": "Your Rank is:",
+    "translation": "您的排名是：",
+    "context": "pfGame"
+  },
+  {
+    "message": "Restart",
+    "translation": "重新开始",
+    "context": "pfGame"
+  },
+  {
+    "message": "The page you want doesn't exist",
+    "translation": "您访问的页面不存在"
+  },
+  {
+    "message": "Go back to home",
+    "translation": "返回首页"
+  }
+]

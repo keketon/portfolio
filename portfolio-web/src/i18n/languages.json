@@ -1,0 +1,22 @@
+{
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "isBase": true
+    },
+    {
+      "code": "ja",
+      "name": "Japanese",
+      "nativeName": "日本語",
+      "isBase": false
+    },
+    {
+      "code": "zh",
+      "name": "Chinese",
+      "nativeName": "中文",
+      "isBase": false
+    }
+  ]
+}
