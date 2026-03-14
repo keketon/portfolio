@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "振る舞いの基本",
+    "type": "mental",
+    "plan": "free",
+    "effects": [
+      {
+        "parameter": "kocho",
+        "operation": "+2"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "振る舞いの基本+",
+    "type": "mental",
+    "plan": "free",
+    "effects": [
+      {
+        "parameter": "kocho",
+        "operation": "+3"
+      }
+    ]
+  }
+]

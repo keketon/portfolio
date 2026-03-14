@@ -15,14 +15,16 @@ const ParameterInput: React.FC<ParameterInputProps> = ({ id, label, value, onCha
       <label htmlFor={id} className="block text-sm font-medium text-white">
         {label}
       </label>
-      <Input
-        id={id}
-        type="number"
-        value={value}
-        onChange={e => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="w-full"
-      />
+      <div className="space-y-1">
+        <Input
+          id={id}
+          type="number"
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          placeholder={placeholder}
+          className="w-full"
+        />
+      </div>
     </div>
   );
 };

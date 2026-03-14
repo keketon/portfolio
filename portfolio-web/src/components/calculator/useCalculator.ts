@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { AnomalyType } from './configs/anomalyConfig';
+import type { Card } from './model/Card';
+import { applyCardEffects as applyCardEffectsUtil } from '@/lib/cardEffects';
 
 export interface Parameter {
   key: string;
@@ -62,11 +64,18 @@ export const useCalculator = (config: TabConfig) => {
     setAnomalyType('tsuyoki');
   };
 
+  // Apply card effects to current parameter values
+  const applyCardEffects = (card: Card) => {
+    const updatedValues = applyCardEffectsUtil(values, card.effects);
+    setValues(updatedValues);
+  };
+
   return {
     values,
     score,
     handleChange,
     handleReset,
+    applyCardEffects,
     anomalyType,
     setAnomalyType,
   };
