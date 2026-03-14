@@ -69,8 +69,7 @@ const CalculatorTab: React.FC<CalculatorTabProps> = ({ config }) => {
               label={tr(param.label, 'ScoreCalculator')}
               value={values[param.key]}
               onChange={val => handleChange(param.key, val)}
-              // TODO: Fix translation
-              placeholder={tr(`Enter ${param.label} value`, 'ScoreCalculator')}
+              placeholder={tr('Enter [0] value', 'ScoreCalculator', param.label)}
             />
           ))}
         </div>

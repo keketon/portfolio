@@ -322,5 +322,145 @@
   {
     "message": "Go back to home",
     "translation": "ホームへ戻る"
+  },
+  {
+    "message": "Score",
+    "translation": "スコア",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Card Selection",
+    "translation": "カード選択",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Parameters",
+    "translation": "パラメータ",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Tsuyoki",
+    "translation": "強気",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Zenryoku",
+    "translation": "全力",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Anomaly Type",
+    "translation": "アノマリータイプ",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Enter [0] value",
+    "translation": "[0]の値を入力してください",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Reset",
+    "translation": "リセット",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Select Card",
+    "translation": "カードを選択",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Search Card",
+    "translation": "カードを検索",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Select Card",
+    "translation": "カードを選択",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Please select a card from the list",
+    "translation": "リストからカードを選択してください",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Search by card name...",
+    "translation": "カード名で検索...",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "No cards found",
+    "translation": "カードが見つかりません",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Score Calculator",
+    "translation": "スコア計算機",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Sense",
+    "translation": "センス",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Anomaly",
+    "translation": "アノマリー",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Parameta",
+    "translation": "パラメータ",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "All Reinforcement",
+    "translation": "全強化",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Tsuyoki Reinforcement",
+    "translation": "強気強化",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Zenryoku Reinforcement",
+    "translation": "全力強化",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Kocho",
+    "translation": "好調",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Shuchu",
+    "translation": "集中",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Zekocho",
+    "translation": "絶好調",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Total Multiplier (%)",
+    "translation": "スコア上昇率（％）",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Kocho Multiplier (x n)",
+    "translation": "好調適用 (x n)",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Shuchu Multiplier (x n)",
+    "translation": "集中適用 (x n)",
+    "context": "ScoreCalculator"
+  },
+  {
+    "message": "Shuchu Reinforcement (%)",
+    "translation": "集中強化 (%)",
+    "context": "ScoreCalculator"
   }
 ]
